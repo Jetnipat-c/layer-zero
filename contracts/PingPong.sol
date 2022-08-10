@@ -21,6 +21,8 @@ contract PingPong is NonblockingLzApp, Pausable {
     // event emitted every ping() to keep track of consecutive pings count
     event Ping(uint256 pings);
 
+    uint256 public totalPing;
+
     // constructor requires the LayerZero endpoint for this chain
     constructor(address _endpoint) NonblockingLzApp(_endpoint) {}
 
@@ -104,7 +106,8 @@ contract PingPong is NonblockingLzApp, Pausable {
         uint256 pings = abi.decode(_payload, (uint256));
 
         // *pong* back to the other side
-        ping(_srcChainId, sendBackToAddress, pings);
+        // ping(_srcChainId, sendBackToAddress, pings);
+        totalPing = pings;
     }
 
     // allow this contract to receive ether
