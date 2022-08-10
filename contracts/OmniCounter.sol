@@ -4,17 +4,12 @@ pragma solidity 0.8.9;
 pragma abicoder v2;
 
 import "./lzApp/NonblockingLzApp.sol";
-import "../interfaces/ILayerZeroEndpoint.sol";
 
 /// @title A LayerZero example sending a cross chain message from a source chain to a destination chain to increment a counter
 contract OmniCounter is NonblockingLzApp {
     uint256 public counter;
 
-    ILayerZeroEndpoint public immutable lzEndpoint;
-
-    constructor(address _lzEndpoint) NonblockingLzApp(_lzEndpoint) {
-        lzEndpoint = ILayerZeroEndpoint(_endpoint);
-    }
+    constructor(address _lzEndpoint) NonblockingLzApp(_lzEndpoint) {}
 
     function _nonblockingLzReceive(
         uint16,

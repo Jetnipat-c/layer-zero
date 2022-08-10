@@ -1,6 +1,6 @@
-import addressUtils from "../../utils/addressUtils";
 import hre, { ethers } from "hardhat";
-import { OmniCounter__factory } from "../../typechain-types/factories/contracts/OmniCounter__factory";
+import addressUtils from "../../utils/addressUtils";
+import { OmniCounter__factory } from "../../typechain-types";
 
 export async function deployCounterBSC() {
   const bscEndpoint = "0x6Fcb97553D41516Cb228ac03FdC8B9a0a9df04A1";
